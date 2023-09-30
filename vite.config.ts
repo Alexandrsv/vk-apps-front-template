@@ -15,6 +15,12 @@ export default defineConfig({
     react(),
     viteBasicSslPlugin(),
   ],
+  build: {
+    // sourcemap: true,
+  },
+  css: {
+    devSourcemap: true,
+  },
   server: {
     port: 10888,
     https: true,
