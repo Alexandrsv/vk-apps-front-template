@@ -47,11 +47,11 @@ function App() {
   const insets = useInsets();
   const isWebView = bridge.isWebView();
 
-  console.log({ activeView, adaptivity, insets, isWebView, viewWidth });
+  console.log({ activeView, adaptivity, insets, isWebView, viewWidth, routes });
 
   const modals = (
     <ModalRoot activeModal={activeModal} onClose={() => {}}>
-      <ModalCard id="user_modal">
+      <ModalCard id={routes.root2.view2["panel2.1"]["user_modal"].id}>
         Содержимое модального окна
         <CellButton onClick={() => routeNavigator.hideModal()}>
           Modal
@@ -107,9 +107,9 @@ function App() {
                   </Tabbar>
                 }
               >
-                <Root activeView={activeView} id={"root1"}>
-                  <View activePanel={activePanel!} id="view1">
-                    <Panel id="panel1.1">
+                <Root activeView={activeView} id={routes.root1.id}>
+                  <View activePanel={activePanel!} id={routes.root1.view1.id}>
+                    <Panel id={routes.root1.view1["panel1.1"].id}>
                       <PanelHeader>View 1</PanelHeader>
                       <Group>
                         <div style={{ height: 200 }} />
@@ -132,9 +132,9 @@ function App() {
                     </Panel>
                   </View>
                 </Root>
-                <Root activeView={activeView} id={"root2"}>
-                  <View activePanel={activePanel!} id="view2">
-                    <Panel id="panel2.1">
+                <Root activeView={activeView} id={routes.root2.id}>
+                  <View activePanel={activePanel!} id={routes.root2.view2.id}>
+                    <Panel id={routes.root2.view2["panel2.1"].id}>
                       <PanelHeader>View 2</PanelHeader>
                       <Group>
                         <div style={{ height: 200 }} />
@@ -157,7 +157,7 @@ function App() {
                         <div style={{ height: 600 }} />
                       </Group>
                     </Panel>
-                    <Panel id="panel2.2">
+                    <Panel id={routes.root2.view2["panel2.2"].id}>
                       <PanelHeader>View 2.2</PanelHeader>
                       <Group>
                         <div style={{ height: 200 }} />
