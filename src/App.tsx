@@ -10,6 +10,7 @@ import {
   ModalRoot,
   Panel,
   PanelHeader,
+  Root,
   SplitCol,
   SplitLayout,
   Tabbar,
@@ -33,8 +34,11 @@ import {
 } from "@vkontakte/icons";
 
 function App() {
-  const { view: activeView = "view1", modal: activeModal } =
-    useActiveVkuiLocation();
+  const {
+    view: activeView = "view1",
+    modal: activeModal,
+    root: activeRoot = "root1",
+  } = useActiveVkuiLocation();
   const activePanel = useGetPanelForView("default_view");
   const routeNavigator = useRouteNavigator();
   const { viewWidth } = useAdaptivityConditionalRender();
@@ -62,12 +66,12 @@ function App() {
           <SplitLayout modal={modals}>
             <SplitCol>
               <Epic
-                activeStory={activeView!}
+                activeStory={activeRoot}
                 tabbar={
                   <Tabbar>
                     <TabbarItem
                       onClick={() =>
-                        routeNavigator.push(routes.view1["panel1.1"])
+                        routeNavigator.push(routes.root1.view1["panel1.1"])
                       }
                       selected={activeView === "feed"}
                       data-story="feed"
@@ -77,7 +81,7 @@ function App() {
                     </TabbarItem>
                     <TabbarItem
                       onClick={() =>
-                        routeNavigator.push(routes.view2["panel2.1"])
+                        routeNavigator.push(routes.root2.view2["panel2.1"])
                       }
                       selected={activeView === "services"}
                       data-story="services"
@@ -87,7 +91,7 @@ function App() {
                     </TabbarItem>
                     <TabbarItem
                       onClick={() =>
-                        routeNavigator.push(routes.view2["panel2.2"])
+                        routeNavigator.push(routes.root2.view2["panel2.2"])
                       }
                       selected={activeView === "messages"}
                       data-story="messages"
@@ -103,68 +107,72 @@ function App() {
                   </Tabbar>
                 }
               >
-                <View activePanel={activePanel!} id="view1">
-                  <Panel id="panel1.1">
-                    <PanelHeader>View 1</PanelHeader>
-                    <Group>
-                      <div style={{ height: 200 }} />
-                      <CellButton
-                        onClick={() =>
-                          routeNavigator.push(routes.view2["panel2.1"])
-                        }
-                      >
-                        Open View 2
-                      </CellButton>
-                      <CellButton
-                        onClick={() =>
-                          routeNavigator.push(routes.view2["panel2.2"])
-                        }
-                      >
-                        Open View 2.2
-                      </CellButton>
-                      <div style={{ height: 600 }} />
-                    </Group>
-                  </Panel>
-                </View>
-                <View activePanel={activePanel!} id="view2">
-                  <Panel id="panel2.1">
-                    <PanelHeader>View 2</PanelHeader>
-                    <Group>
-                      <div style={{ height: 200 }} />
-                      <CellButton
-                        onClick={() =>
-                          routeNavigator.push(routes.view1["panel1.1"])
-                        }
-                      >
-                        Back to View 1
-                      </CellButton>
-                      <CellButton
-                        onClick={() =>
-                          routeNavigator.push(
-                            routes.view2["panel2.1"]["user_modal"],
-                          )
-                        }
-                      >
-                        Modal
-                      </CellButton>
-                      <div style={{ height: 600 }} />
-                    </Group>
-                  </Panel>
-                  <Panel id="panel2.2">
-                    <PanelHeader>View 2.2</PanelHeader>
-                    <Group>
-                      <div style={{ height: 200 }} />
-                      <CellButton
-                        onClick={() =>
-                          routeNavigator.push(routes.view1["panel1.1"])
-                        }
-                      >
-                        Back to View 1
-                      </CellButton>
-                      <div style={{ height: 600 }} />
-                    </Group>
-                  </Panel>
-                </View>
+                <Root activeView={activeView} id={"root1"}>
+                  <View activePanel={activePanel!} id="view1">
+                    <Panel id="panel1.1">
+                      <PanelHeader>View 1</PanelHeader>
+                      <Group>
+                        <div style={{ height: 200 }} />
+                        <CellButton
+                          onClick={() =>
+                            routeNavigator.push(routes.root2.view2["panel2.1"])
+                          }
+                        >
+                          Open View 2
+                        </CellButton>
+                        <CellButton
+                          onClick={() =>
+                            routeNavigator.push(routes.root2.view2["panel2.2"])
+                          }
+                        >
+                          Open View 2.2
+                        </CellButton>
+                        <div style={{ height: 600 }} />
+                      </Group>
+                    </Panel>
+                  </View>
+                </Root>
+                <Root activeView={activeView} id={"root2"}>
+                  <View activePanel={activePanel!} id="view2">
+                    <Panel id="panel2.1">
+                      <PanelHeader>View 2</PanelHeader>
+                      <Group>
+                        <div style={{ height: 200 }} />
+                        <CellButton
+                          onClick={() =>
+                            routeNavigator.push(routes.root1.view1["panel1.1"])
+                          }
+                        >
+                          Back to View 1
+                        </CellButton>
+                        <CellButton
+                          onClick={() =>
+                            routeNavigator.push(
+                              routes.root2.view2["panel2.1"]["user_modal"],
+                            )
+                          }
+                        >
+                          Modal
+                        </CellButton>
+                        <div style={{ height: 600 }} />
+                      </Group>
+                    </Panel>
+                    <Panel id="panel2.2">
+                      <PanelHeader>View 2.2</PanelHeader>
+                      <Group>
+                        <div style={{ height: 200 }} />
+                        <CellButton
+                          onClick={() =>
+                            routeNavigator.push(routes.root1.view1["panel1.1"])
+                          }
+                        >
+                          Back to View 1
+                        </CellButton>
+                        <div style={{ height: 600 }} />
+                      </Group>
+                    </Panel>
+                  </View>
+                </Root>
               </Epic>
             </SplitCol>
           </SplitLayout>
