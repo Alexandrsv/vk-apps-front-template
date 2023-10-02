@@ -17,11 +17,7 @@ import {
 import { routes } from '../../../router.ts'
 
 const Root1: FC<{ id: string }> = ({ id }) => {
-  const {
-    view: activeView = 'view1',
-    modal: activeModal,
-    root: activeRoot = 'root1',
-  } = useActiveVkuiLocation()
+  const { view: activeView = 'view1' } = useActiveVkuiLocation()
   const activePanel = useGetPanelForView('default_view')
 
   const routeNavigator = useRouteNavigator()
