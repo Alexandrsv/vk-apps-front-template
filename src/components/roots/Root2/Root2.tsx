@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import { FC } from 'react'
+
 import {
   useActiveVkuiLocation,
   useGetPanelForView,
   useRouteNavigator,
-} from "@vkontakte/vk-mini-apps-router";
-import { routes } from "../../../router.ts";
+} from '@vkontakte/vk-mini-apps-router'
 import {
   CellButton,
   Group,
@@ -12,28 +12,30 @@ import {
   PanelHeader,
   Root,
   View,
-} from "@vkontakte/vkui";
+} from '@vkontakte/vkui'
+
+import { routes } from '../../../router.ts'
 
 const Root2: FC<{ id: string }> = ({ id }) => {
   const {
-    view: activeView = "view1",
+    view: activeView = 'view1',
     modal: activeModal,
-    root: activeRoot = "root1",
-  } = useActiveVkuiLocation();
-  const activePanel = useGetPanelForView("default_view");
+    root: activeRoot = 'root1',
+  } = useActiveVkuiLocation()
+  const activePanel = useGetPanelForView('default_view')
 
-  const routeNavigator = useRouteNavigator();
+  const routeNavigator = useRouteNavigator()
 
   return (
     <Root activeView={activeView} id={id}>
       <View activePanel={activePanel!} id={routes.root2.view2.id}>
-        <Panel id={routes.root2.view2["panel2.1"].id}>
+        <Panel id={routes.root2.view2['panel2.1'].id}>
           <PanelHeader>View 2</PanelHeader>
           <Group>
             <div style={{ height: 200 }} />
             <CellButton
               onClick={() =>
-                routeNavigator.push(routes.root1.view1["panel1.1"])
+                routeNavigator.push(routes.root1.view1['panel1.1'])
               }
             >
               Back to View 1
@@ -41,7 +43,7 @@ const Root2: FC<{ id: string }> = ({ id }) => {
             <CellButton
               onClick={() =>
                 routeNavigator.push(
-                  routes.root2.view2["panel2.1"]["user_modal"],
+                  routes.root2.view2['panel2.1']['user_modal']
                 )
               }
             >
@@ -50,13 +52,13 @@ const Root2: FC<{ id: string }> = ({ id }) => {
             <div style={{ height: 600 }} />
           </Group>
         </Panel>
-        <Panel id={routes.root2.view2["panel2.2"].id}>
+        <Panel id={routes.root2.view2['panel2.2'].id}>
           <PanelHeader>View 2.2</PanelHeader>
           <Group>
             <div style={{ height: 200 }} />
             <CellButton
               onClick={() =>
-                routeNavigator.push(routes.root1.view1["panel1.1"])
+                routeNavigator.push(routes.root1.view1['panel1.1'])
               }
             >
               Back to View 1
@@ -66,7 +68,7 @@ const Root2: FC<{ id: string }> = ({ id }) => {
         </Panel>
       </View>
     </Root>
-  );
-};
+  )
+}
 
-export default Root2;
+export default Root2
