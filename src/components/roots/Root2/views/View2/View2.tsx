@@ -29,7 +29,7 @@ const View2: FC<{ id: string }> = ({ id }) => {
   return (
     <View activePanel={activePanel!} id={id}>
       <Panel id={routes.root2.view2['panel2.1'].id}>
-        <PanelHeader>Panel 2</PanelHeader>
+        <PanelHeader>View2 Panel 2.1</PanelHeader>
         <Group>
           <div style={{ height: 200 }} />
           <CellButton
@@ -48,7 +48,7 @@ const View2: FC<{ id: string }> = ({ id }) => {
         </Group>
       </Panel>
       <Panel id={routes.root2.view2['panel2.2'].id}>
-        <PanelHeader>Panel 2.2</PanelHeader>
+        <PanelHeader>View2 Panel 2.2</PanelHeader>
         <Group>
           <CellButton
             onClick={() => routeNavigator.push(routes.root1.view1['panel1.1'])}

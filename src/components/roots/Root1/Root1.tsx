@@ -14,6 +14,7 @@ import {
   View,
 } from '@vkontakte/vkui'
 
+import { useSnackbar } from '../../../context/SnackbarContext.tsx'
 import { routes } from '../../../router.ts'
 
 const Root1: FC<{ id: string }> = ({ id }) => {
@@ -22,11 +23,20 @@ const Root1: FC<{ id: string }> = ({ id }) => {
 
   const routeNavigator = useRouteNavigator()
 
+  const { showSnackbar } = useSnackbar()
+
+  const onShowSnackbar = () => {
+    showSnackbar({
+      text: 'Hello world!',
+      variant: 'success',
+    })
+  }
+
   return (
     <Root activeView={activeView} id={id}>
       <View activePanel={activePanel!} id={routes.root1.view1.id}>
         <Panel id={routes.root1.view1['panel1.1'].id}>
-          <PanelHeader>View 1</PanelHeader>
+          <PanelHeader>View 1 panel1.1</PanelHeader>
           <Group>
             <div style={{ height: 200 }} />
             <CellButton
@@ -43,6 +53,7 @@ const Root1: FC<{ id: string }> = ({ id }) => {
             >
               Open View 2.2
             </CellButton>
+            <CellButton onClick={onShowSnackbar}>onShowSnackbar</CellButton>
             <div style={{ height: 600 }} />
           </Group>
         </Panel>

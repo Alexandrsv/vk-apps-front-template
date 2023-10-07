@@ -17,6 +17,7 @@ import Modals from './components/Modals/Modals.tsx'
 import Root1 from './components/roots/Root1/Root1.tsx'
 import Root2 from './components/roots/Root2/Root2.tsx'
 
+import { SnackbarContextProvider } from './context/SnackbarContext.tsx'
 import { routes } from './router.ts'
 
 function App() {
@@ -33,16 +34,18 @@ function App() {
   return (
     <ConfigProvider>
       <AdaptivityProvider>
-        <AppRoot>
-          <SplitLayout modal={<Modals activeModal={activeModal} />}>
-            <SplitCol>
-              <Epic activeStory={activeRoot} tabbar={<EpicTabs />}>
-                <Root1 id={routes.root1.id} />
-                <Root2 id={routes.root2.id} />
-              </Epic>
-            </SplitCol>
-          </SplitLayout>
-        </AppRoot>
+        <SnackbarContextProvider>
+          <AppRoot>
+            <SplitLayout modal={<Modals activeModal={activeModal} />}>
+              <SplitCol>
+                <Epic activeStory={activeRoot} tabbar={<EpicTabs />}>
+                  <Root1 id={routes.root1.id} />
+                  <Root2 id={routes.root2.id} />
+                </Epic>
+              </SplitCol>
+            </SplitLayout>
+          </AppRoot>
+        </SnackbarContextProvider>
       </AdaptivityProvider>
     </ConfigProvider>
   )
