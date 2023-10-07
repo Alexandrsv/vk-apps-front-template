@@ -1,7 +1,16 @@
 /** @type {import("prettier").Config} */
 const config = {
   plugins: ['@trivago/prettier-plugin-sort-imports'],
-  importOrder: ['^[a-z]', '^@(.*)$', '^[.]/components', '^[./]'],
+  importOrder: [
+    '^[a-zA-Z](.*)$',
+    '^@[a-zA-Z]+(.*)$',
+    '^@[/]router(.*)$',
+    '^@[/]context(.*)$',
+    '^@[/]hooks(.*)$',
+    '^@[/]components(.*)$',
+    '^@[/](.*)$',
+    '^[./]',
+  ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
 

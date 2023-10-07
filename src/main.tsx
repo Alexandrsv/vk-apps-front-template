@@ -5,12 +5,15 @@ import bridge from '@vkontakte/vk-bridge'
 import { RouterProvider } from '@vkontakte/vk-mini-apps-router'
 import '@vkontakte/vkui/dist/vkui.css'
 
-import Page404 from './components/Page404/Page404.tsx'
+import { router } from '@/router.ts'
 
-import App from './App.tsx'
-import { AlertContextProvider } from './context/AlertContext.tsx'
+import { AlertContextProvider } from '@/context/AlertContext.tsx'
+
+import Page404 from '@/components/Page404/Page404.tsx'
+
+import App from '@/App.tsx'
+
 import './index.css'
-import { router } from './router.ts'
 
 void bridge.send('VKWebAppInit')
 

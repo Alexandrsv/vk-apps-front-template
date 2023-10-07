@@ -3,7 +3,7 @@ import React, { ReactNode, createContext, useContext, useState } from 'react'
 import {
   CustomSnackbar,
   ICustomSnackbarProps,
-} from '../components/popouts/CustomSnackbar'
+} from '@/components/popouts/CustomSnackbar.tsx'
 
 export interface ISnackbarContextModel {
   showSnackbar: ShowSnackbar

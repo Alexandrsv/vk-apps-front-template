@@ -1,36 +1,37 @@
-import React, { FC } from "react";
-import { Avatar, Snackbar } from "@vkontakte/vkui";
-import { Icon16Done, Icon16ErrorCircle } from "@vkontakte/icons";
+import React, { FC } from 'react'
+
+import { Icon16Done, Icon16ErrorCircle } from '@vkontakte/icons'
+import { Avatar, Snackbar } from '@vkontakte/vkui'
 
 export interface ICustomSnackbarProps {
-  text: string;
-  onClose: () => void;
-  variant?: "success" | "error";
+  text: string
+  onClose: () => void
+  variant?: 'success' | 'error'
 }
 
 export const CustomSnackbar: FC<ICustomSnackbarProps> = ({
   text,
   onClose,
-  variant = "success",
+  variant = 'success',
 }) => {
-  const [showSnackbar, setShowSnackbar] = React.useState(true);
+  const [showSnackbar, setShowSnackbar] = React.useState(true)
   return (
     <>
       {showSnackbar && (
         <Snackbar
           onClose={() => {
-            onClose();
-            setShowSnackbar(false);
+            onClose()
+            setShowSnackbar(false)
           }}
           before={
             <Avatar
               size={24}
-              style={{ background: "var(--vkui--color_background_accent)" }}
+              style={{ background: 'var(--vkui--color_background_accent)' }}
             >
-              {variant === "success" && (
+              {variant === 'success' && (
                 <Icon16Done fill="#fff" width={14} height={14} />
               )}
-              {variant === "error" && (
+              {variant === 'error' && (
                 <Icon16ErrorCircle fill="#fff" width={14} height={14} />
               )}
             </Avatar>
@@ -40,7 +41,7 @@ export const CustomSnackbar: FC<ICustomSnackbarProps> = ({
         </Snackbar>
       )}
     </>
-  );
-};
+  )
+}
 
-export default CustomSnackbar;
+export default CustomSnackbar

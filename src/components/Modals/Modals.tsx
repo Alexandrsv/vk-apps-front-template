@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router'
 import { CellButton, ModalCard, ModalRoot } from '@vkontakte/vkui'
 
-import { routes } from '../../router.ts'
+import { routes } from '@/router.ts'
 
 const Modals: FC<{ activeModal?: string }> = ({ activeModal }) => {
   const routeNavigator = useRouteNavigator()

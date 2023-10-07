@@ -3,7 +3,7 @@ import React from 'react'
 import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router'
 import { Button, Text } from '@vkontakte/vkui'
 
-import { routes } from '../../router.ts'
+import { routes } from '@/router.ts'
 
 const Page404 = () => {
   const routeNavigator = useRouteNavigator()

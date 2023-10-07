@@ -15,9 +15,10 @@ import {
   View,
 } from '@vkontakte/vkui'
 
-import { useAlert } from '../../../context/AlertContext.tsx'
-import { useSnackbar } from '../../../context/SnackbarContext.tsx'
-import { routes } from '../../../router.ts'
+import { routes } from '@/router.ts'
+
+import { useAlert } from '@/context/AlertContext.tsx'
+import { useSnackbar } from '@/context/SnackbarContext.tsx'
 
 const Root1: FC<{ id: string }> = ({ id }) => {
   const { view: activeView = 'view1' } = useActiveVkuiLocation()

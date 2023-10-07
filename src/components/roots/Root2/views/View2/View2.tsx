@@ -14,8 +14,9 @@ import {
   View,
 } from '@vkontakte/vkui'
 
-import { routes } from '../../../../../router.ts'
-import { useBearStore } from '../../../../../store/bearsStore.ts'
+import { routes } from '@/router.ts'
+
+import { useBearStore } from '@/store/bearsStore.ts'
 
 const View2: FC<{ id: string }> = ({ id }) => {
   const routeNavigator = useRouteNavigator()

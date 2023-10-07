@@ -11,15 +11,12 @@ import {
 } from '@vkontakte/vk-mini-apps-router'
 import { Counter, Tabbar, TabbarItem } from '@vkontakte/vkui'
 
-import { routes } from '../../router.ts'
+import { routes } from '@/router.ts'
 
 const EpicTabs = () => {
   const routeNavigator = useRouteNavigator()
-  const {
-    view: activeView = 'view1',
-    modal: activeModal,
-    root: activeRoot = 'root1',
-  } = useActiveVkuiLocation()
+  const { view: activeView = 'view1', root: activeRoot = 'root1' } =
+    useActiveVkuiLocation()
   return (
     <Tabbar>
       <TabbarItem

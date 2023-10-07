@@ -14,14 +14,15 @@ import {
   useAdaptivityConditionalRender,
 } from '@vkontakte/vkui'
 
-import EpicTabs from './components/EpicTabs/EpicTabs.tsx'
-import Modals from './components/Modals/Modals.tsx'
-import Root1 from './components/roots/Root1/Root1.tsx'
-import Root2 from './components/roots/Root2/Root2.tsx'
+import { routes } from '@/router.ts'
 
-import { useAlert } from './context/AlertContext.tsx'
-import { SnackbarContextProvider } from './context/SnackbarContext.tsx'
-import { routes } from './router.ts'
+import { useAlert } from '@/context/AlertContext.tsx'
+import { SnackbarContextProvider } from '@/context/SnackbarContext.tsx'
+
+import EpicTabs from '@/components/EpicTabs/EpicTabs.tsx'
+import Modals from '@/components/Modals/Modals.tsx'
+import Root1 from '@/components/roots/Root1/Root1.tsx'
+import Root2 from '@/components/roots/Root2/Root2.tsx'
 
 function App() {
   const { modal: activeModal, root: activeRoot = 'root1' } =
