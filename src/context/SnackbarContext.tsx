@@ -47,5 +47,3 @@ export const useSnackbar = () => {
   const { showSnackbar } = useContext(SnackbarCtx)
   return { showSnackbar }
 }
-
-export default SnackbarCtx

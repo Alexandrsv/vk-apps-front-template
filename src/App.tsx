@@ -17,6 +17,7 @@ import Modals from './components/Modals/Modals.tsx'
 import Root1 from './components/roots/Root1/Root1.tsx'
 import Root2 from './components/roots/Root2/Root2.tsx'
 
+import { useAlert } from './context/AlertContext.tsx'
 import { SnackbarContextProvider } from './context/SnackbarContext.tsx'
 import { routes } from './router.ts'
 
@@ -27,6 +28,8 @@ function App() {
 
   const adaptivity = useAdaptivity()
   const insets = useInsets()
+  const { activeAlert } = useAlert()
+
   const isWebView = bridge.isWebView()
 
   console.log({ adaptivity, insets, isWebView, viewWidth, routes })
@@ -36,7 +39,10 @@ function App() {
       <AdaptivityProvider>
         <SnackbarContextProvider>
           <AppRoot>
-            <SplitLayout modal={<Modals activeModal={activeModal} />}>
+            <SplitLayout
+              modal={<Modals activeModal={activeModal} />}
+              popout={activeAlert}
+            >
               <SplitCol>
                 <Epic activeStory={activeRoot} tabbar={<EpicTabs />}>
                   <Root1 id={routes.root1.id} />

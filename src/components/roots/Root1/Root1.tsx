@@ -14,6 +14,7 @@ import {
   View,
 } from '@vkontakte/vkui'
 
+import { useAlert } from '../../../context/AlertContext.tsx'
 import { useSnackbar } from '../../../context/SnackbarContext.tsx'
 import { routes } from '../../../router.ts'
 
@@ -24,11 +25,37 @@ const Root1: FC<{ id: string }> = ({ id }) => {
   const routeNavigator = useRouteNavigator()
 
   const { showSnackbar } = useSnackbar()
+  const { setActiveAlert } = useAlert()
 
   const onShowSnackbar = () => {
     showSnackbar({
       text: 'Hello world!',
       variant: 'success',
+    })
+  }
+
+  const onShowAlert = () => {
+    setActiveAlert({
+      text: 'Вы уверены, что хотите удалить ответ?',
+      header: 'Удалить обратную связь?',
+      actions: [
+        {
+          title: 'Отмена',
+          autoClose: true,
+          mode: 'destructive',
+        },
+        {
+          title: 'Ok',
+          autoClose: true,
+          mode: 'default',
+          action: () => {
+            showSnackbar({
+              text: 'Зааллерчено',
+              variant: 'success',
+            })
+          },
+        },
+      ],
     })
   }
 
@@ -38,7 +65,6 @@ const Root1: FC<{ id: string }> = ({ id }) => {
         <Panel id={routes.root1.view1['panel1.1'].id}>
           <PanelHeader>View 1 panel1.1</PanelHeader>
           <Group>
-            <div style={{ height: 200 }} />
             <CellButton
               onClick={() =>
                 routeNavigator.push(routes.root2.view2['panel2.1'])
@@ -54,7 +80,7 @@ const Root1: FC<{ id: string }> = ({ id }) => {
               Open View 2.2
             </CellButton>
             <CellButton onClick={onShowSnackbar}>onShowSnackbar</CellButton>
-            <div style={{ height: 600 }} />
+            <CellButton onClick={onShowAlert}>Alert</CellButton>
           </Group>
         </Panel>
       </View>
