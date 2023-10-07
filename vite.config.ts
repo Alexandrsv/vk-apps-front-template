@@ -22,11 +22,28 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    exclude: ['@vkontakte/icons'],
+  },
   build: {
-    // sourcemap: true,
+    rollupOptions: {
+      onLog: (level, log, handler) => {
+        // скрыть сообщения о use-client в либах @vkontakte при билде
+        if (
+          level === 'warn' &&
+          log.message.includes('use-client') &&
+          log.message.includes('@vkontakte') &&
+          log.message.includes('was ignored')
+        ) {
+          return
+        }
+
+        handler(level, log)
+      },
+    },
   },
   css: {
-    devSourcemap: true,
+    // devSourcemap: true,
   },
   server: {
     port: 10888,
