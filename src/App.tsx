@@ -1,3 +1,5 @@
+import { YMInitializer } from 'react-yandex-metrika'
+
 import bridge from '@vkontakte/vk-bridge'
 import { useInsets } from '@vkontakte/vk-bridge-react'
 import { useActiveVkuiLocation } from '@vkontakte/vk-mini-apps-router'
@@ -51,6 +53,18 @@ function App() {
               </SplitCol>
             </SplitLayout>
           </AppRoot>
+          <YMInitializer
+            accounts={[0]}
+            options={{
+              webvisor: true,
+              accurateTrackBounce: true,
+              trackHash: true,
+              clickmap: true,
+              trackLinks: true,
+              trackForms: true,
+            }}
+            version="2"
+          />
         </SnackbarContextProvider>
       </AdaptivityProvider>
     </ConfigProvider>

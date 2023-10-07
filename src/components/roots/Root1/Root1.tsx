@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import ym from 'react-yandex-metrika'
 
 import {
   useActiveVkuiLocation,
@@ -28,6 +29,8 @@ const Root1: FC<{ id: string }> = ({ id }) => {
   const { setActiveAlert } = useAlert()
 
   const onShowSnackbar = () => {
+    ym('reachGoal', 'goalName')
+
     showSnackbar({
       text: 'Hello world!',
       variant: 'success',
