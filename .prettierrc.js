@@ -1,6 +1,9 @@
 /** @type {import("prettier").Config} */
 const config = {
-  plugins: ['@trivago/prettier-plugin-sort-imports'],
+  plugins: [
+    '@trivago/prettier-plugin-sort-imports',
+    'prettier-plugin-tailwindcss',
+  ],
   importOrder: [
     '^[a-zA-Z](.*)$',
     '^@[a-zA-Z]+(.*)$',
