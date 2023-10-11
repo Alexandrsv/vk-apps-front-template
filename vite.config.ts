@@ -22,9 +22,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  optimizeDeps: {
-    exclude: ['@vkontakte/icons'],
-  },
   build: {
     rollupOptions: {
       onLog: (level, log, handler) => {
