@@ -9,7 +9,12 @@ import {
 
 // Создание конфигурации маршрутов
 export const routes = RoutesConfig.create([
-  createRoot('root1', [createView('view1', [createPanel('panel1.1', '/')])]),
+  createRoot('root1', [
+    createView('view1', [createPanel('panel1.1', '/')]),
+    createView('view2', [
+      createPanel('panel1.2.1', '/panel1.2.1/:id', [], ['id'] as const),
+    ]),
+  ]),
   createRoot('root2', [
     createView('view2', [
       createPanel('panel2.1', '/panel2', [
