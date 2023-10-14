@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 
 import {
+  useActiveVkuiLocation,
   useGetPanelForView,
   useRouteNavigator,
 } from '@vkontakte/vk-mini-apps-router'
@@ -11,6 +12,8 @@ import {
   Group,
   Panel,
   PanelHeader,
+  Tabs,
+  TabsItem,
   View,
 } from '@vkontakte/vkui'
 
@@ -26,6 +29,8 @@ const View2: FC<{ id: string }> = ({ id }) => {
     state.bears,
     state.increase,
   ])
+  const { tab } = useActiveVkuiLocation()
+  const activeTab = tab || 'tab1'
 
   return (
     <View activePanel={activePanel!} id={id}>
@@ -50,6 +55,26 @@ const View2: FC<{ id: string }> = ({ id }) => {
       </Panel>
       <Panel id={routes.root2.view2['panel2.2'].id}>
         <PanelHeader>View2 Panel 2.2</PanelHeader>
+        <Tabs>
+          <TabsItem
+            selected={activeTab === routes.root2.view2['panel2.2']['tab1'].id}
+            onClick={() =>
+              routeNavigator.push(routes.root2.view2['panel2.2']['tab1'])
+            }
+            id={routes.root2.view2['panel2.2']['tab1'].id}
+          >
+            {routes.root2.view2['panel2.2']['tab1'].id}
+          </TabsItem>
+          <TabsItem
+            selected={activeTab === routes.root2.view2['panel2.2']['tab2'].id}
+            onClick={() =>
+              routeNavigator.push(routes.root2.view2['panel2.2']['tab2'])
+            }
+            id={routes.root2.view2['panel2.2']['tab2'].id}
+          >
+            {routes.root2.view2['panel2.2']['tab2'].id}
+          </TabsItem>
+        </Tabs>
         <Group>
           <CellButton
             onClick={() => routeNavigator.push(routes.root1.view1['panel1.1'])}

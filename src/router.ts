@@ -4,6 +4,7 @@ import {
   createModal,
   createPanel,
   createRoot,
+  createTab,
   createView,
 } from '@vkontakte/vk-mini-apps-router'
 
@@ -20,7 +21,10 @@ export const routes = RoutesConfig.create([
       createPanel('panel2.1', '/panel2', [
         createModal('user_modal', '/user-card'),
       ]),
-      createPanel('panel2.2', '/panel2.2'),
+      createPanel('panel2.2', '/panel2.2', [
+        createTab('tab1', `/panel2.2/tab1`),
+        createTab('tab2', `/panel2.2/tab2`),
+      ]),
       // Добавьте здесь другие панели, если необходимо
     ]),
   ]),
