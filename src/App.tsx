@@ -1,3 +1,5 @@
+import React from 'react'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import { YMInitializer } from 'react-yandex-metrika'
 
 import bridge from '@vkontakte/vk-bridge'
@@ -19,6 +21,8 @@ import { routes } from '@/router.ts'
 import { useAlert } from '@/context/AlertContext.tsx'
 import { SnackbarContextProvider } from '@/context/SnackbarContext.tsx'
 
+import { useBridgeUser } from '@/hooks/useBridgeUser.ts'
+
 import EpicTabs from '@/components/EpicTabs/EpicTabs.tsx'
 import Modals from '@/components/Modals/Modals.tsx'
 import Root1 from '@/components/roots/Root1/Root1.tsx'
@@ -34,8 +38,9 @@ function App() {
   const { activeAlert } = useAlert()
 
   const isWebView = bridge.isWebView()
-
+  const { bridgeUser } = useBridgeUser()
   console.log({ adaptivity, insets, isWebView, viewWidth, routes })
+  console.log({ bridgeUser })
 
   return (
     <ConfigProvider>
@@ -54,6 +59,7 @@ function App() {
               </SplitCol>
             </SplitLayout>
           </AppRoot>
+          <ReactQueryDevtools initialIsOpen={false} />
           <YMInitializer
             accounts={[0]}
             options={{

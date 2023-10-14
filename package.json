@@ -11,6 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.36.1",
+    "@tanstack/react-query-devtools": "^4.36.1",
     "@vkontakte/icons": "^2.70.0",
     "@vkontakte/vk-bridge": "^2.11.2",
     "@vkontakte/vk-bridge-react": "^1.0.0",
