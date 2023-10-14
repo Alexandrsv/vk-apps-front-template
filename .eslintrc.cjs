@@ -18,6 +18,7 @@ module.exports = {
     "padding-line-between-statements": [
       "warn",
       {"blankLine": "always", "prev": "*", "next": "return"},
+      {"blankLine": "always", "prev": "*", "next": "export"},
     ]
   },
 };
