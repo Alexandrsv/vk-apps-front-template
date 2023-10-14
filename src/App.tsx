@@ -28,7 +28,7 @@ import Modals from '@/components/Modals/Modals.tsx'
 import Root1 from '@/components/roots/Root1/Root1.tsx'
 import Root2 from '@/components/roots/Root2/Root2.tsx'
 
-import { env } from '@/lib/envs.ts'
+import { appEnv } from '@/lib/envs.ts'
 
 function App() {
   const { modal: activeModal, root: activeRoot = 'root1' } =
@@ -42,7 +42,7 @@ function App() {
   const isWebView = bridge.isWebView()
   const { bridgeUser } = useBridgeUser()
   console.log({ adaptivity, insets, isWebView, viewWidth, routes })
-  console.log({ bridgeUser, env }, env.VITE_API_URL)
+  console.log({ bridgeUser, appEnv }, appEnv.VITE_API_URL)
 
   return (
     <ConfigProvider>
