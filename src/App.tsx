@@ -1,7 +1,7 @@
 import React from 'react'
-import { ReactQueryDevtools } from 'react-query/devtools'
 import { YMInitializer } from 'react-yandex-metrika'
 
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import bridge from '@vkontakte/vk-bridge'
 import { useInsets } from '@vkontakte/vk-bridge-react'
 import { useActiveVkuiLocation } from '@vkontakte/vk-mini-apps-router'

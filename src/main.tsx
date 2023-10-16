@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { QueryClient, QueryClientProvider } from 'react-query'
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RouterProvider } from '@vkontakte/vk-mini-apps-router'
 import '@vkontakte/vkui/dist/vkui.css'
 

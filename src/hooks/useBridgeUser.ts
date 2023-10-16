@@ -1,5 +1,4 @@
-import { useQuery } from 'react-query'
-
+import { useQuery } from '@tanstack/react-query'
 import bridge, { UserInfo } from '@vkontakte/vk-bridge'
 
 const bridgeUserFetcher = async (id = 0) => {
@@ -15,7 +14,7 @@ const bridgeUserFetcher = async (id = 0) => {
 
 // Если 0, то берем текущего пользователя
 export const useBridgeUser = (vkId = 0) => {
-  const queryKey = `/bridge-user/${vkId}`
+  const queryKey = ['/bridge-user', vkId]
   const { data: bridgeUser, ...query } = useQuery(queryKey, () =>
     bridgeUserFetcher(vkId)
   )
