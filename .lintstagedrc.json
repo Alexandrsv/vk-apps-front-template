@@ -1,0 +1,5 @@
+{
+  "*.ts": "npx tsc --noEmit",
+  "*.{js,jsx,ts,tsx}": "npx eslint --fix",
+  "*.{js,jsx,ts,tsx,html,css}": "npx prettier -w --check"
+}
