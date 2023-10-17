@@ -18,6 +18,7 @@ export const useBridgeUser = (vkId = 0) => {
   const { data: bridgeUser, ...query } = useQuery(queryKey, () =>
     bridgeUserFetcher(vkId)
   )
+
   const revalidate = async () => {
     await query.refetch()
   }

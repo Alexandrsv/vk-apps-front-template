@@ -25,7 +25,6 @@ export const routes = RoutesConfig.create([
         createTab('tab1', `/panel2.2/tab1`),
         createTab('tab2', `/panel2.2/tab2`),
       ]),
-      // Добавьте здесь другие панели, если необходимо
     ]),
   ]),
 ])

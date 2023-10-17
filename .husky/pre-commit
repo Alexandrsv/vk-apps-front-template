@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+echo "🚀 pre-commit hook is running 🚀"
+echo "$(pwd)"
+
 npx lint-staged
