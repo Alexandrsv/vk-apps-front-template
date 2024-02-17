@@ -17,6 +17,7 @@ const EpicTabs = () => {
   const routeNavigator = useRouteNavigator()
   const { view: activeView = 'view1', root: activeRoot = 'root1' } =
     useActiveVkuiLocation()
+
   return (
     <Tabbar>
       <TabbarItem

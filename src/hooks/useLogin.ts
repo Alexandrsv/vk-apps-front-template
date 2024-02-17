@@ -8,7 +8,10 @@ import { useBearStore } from '@/store/userStore.ts'
 
 export const useLogin = () => {
   const queryKey: QueryKey = [apiUrls.user.login]
-  const { data: userLogin, ...query } = useQuery(queryKey, () => login(), {})
+  const { data: userLogin, ...query } = useQuery({
+    queryKey,
+    queryFn: () => login(),
+  })
   const { setUser } = useBearStore()
 
   useEffect(() => {

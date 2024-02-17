@@ -7,10 +7,11 @@ import { routes } from '@/router.ts'
 
 const Page404 = () => {
   const routeNavigator = useRouteNavigator()
+
   return (
     <div
       className={
-        'flex flex-col gap-4 w-full h-screen items-center justify-center'
+        'flex h-screen w-full flex-col items-center justify-center gap-4'
       }
     >
       <Text weight="1" className={'text-3xl'}>

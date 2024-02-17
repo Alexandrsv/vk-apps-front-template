@@ -58,7 +58,10 @@ function App() {
               </SplitCol>
             </SplitLayout>
           </AppRoot>
-          <ReactQueryDevtools initialIsOpen={false} />
+          <ReactQueryDevtools
+            initialIsOpen={false}
+            buttonPosition={'bottom-left'}
+          />
           <YMInitializer
             accounts={[0]}
             options={{

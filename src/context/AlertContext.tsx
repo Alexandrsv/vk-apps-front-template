@@ -8,6 +8,7 @@ interface IAlert {
   actions?: AlertActionInterface[]
   onClose?: VoidFunction
 }
+
 export interface IAlertContextModel {
   activeAlert: ReactNode | null
   setActiveAlert: (alertContent: IAlert | null) => void

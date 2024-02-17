@@ -45,5 +45,6 @@ export const SnackbarContextProvider: React.FC<{ children: ReactNode }> = (
 
 export const useSnackbar = () => {
   const { showSnackbar } = useContext(SnackbarCtx)
+
   return { showSnackbar }
 }

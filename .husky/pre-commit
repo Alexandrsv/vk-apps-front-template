@@ -4,4 +4,5 @@
 echo "🚀 pre-commit hook is running 🚀"
 echo "$(pwd)"
 
+npm run ts:check
 npx lint-staged
