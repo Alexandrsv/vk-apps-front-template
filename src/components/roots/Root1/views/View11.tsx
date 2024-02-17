@@ -37,12 +37,10 @@ const View11: FC<{ id: string }> = ({ id }) => {
       actions: [
         {
           title: 'Отмена',
-          autoClose: true,
           mode: 'destructive',
         },
         {
           title: 'Ok',
-          autoClose: true,
           mode: 'default',
           action: () => {
             showSnackbar({
@@ -54,6 +52,7 @@ const View11: FC<{ id: string }> = ({ id }) => {
       ],
     })
   }
+
   return (
     <View activePanel={activePanel!} id={id}>
       <Panel id={routes.root1.view1['panel1.1'].id}>
